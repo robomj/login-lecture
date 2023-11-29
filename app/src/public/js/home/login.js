@@ -24,7 +24,7 @@ function login() {
 			if (res.success) {
 				location.href = "/";
 			} else {
-				alert(res.msg);
+				alert(res.message);
 			}
 		})
 		.catch((err) => {
