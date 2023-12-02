@@ -7,17 +7,17 @@ const fs = require("fs").promises;
 class UserStorage {
   static getUserInfo(id) {
     return new Promise((resolve, reject) => {
-      const query = "SELECT * FROM user WHERE id = ?;";
+      const query = "SELECT * FROM abc WHERE id = ?;";
       db.query(query, [id], (err, data) => {
         if (err) reject(`${err}`);
-        resolve(data[0]);
+        else resolve(data[0]);
       });
     });
   } 
 
   static async save(userInfo) {
     return new Promise((resolve, reject) => {
-      const query = "INSERT INTO user (id, name, password) VALUES (?, ?, ?);";
+      const query = "INSERT INTO abc (id, name, password) VALUES (?, ?, ?);";
       db.query(
         query,
         [
@@ -27,7 +27,7 @@ class UserStorage {
         ],
         (err) => {
         if (err) reject(`${err}`);
-        resolve({success: true});
+        else resolve({success: true});
       });
     });
   }
